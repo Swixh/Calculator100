@@ -6,6 +6,22 @@ if button value is equal sign then, calculate the result.
 
 else add the value to the varible holder
 
+Goal is to:
+Click the number adds to the screen
+
+if an operator is clicked then, 
+goes to next set of numbers
+*maybe just clear the screen*
+1 varible max maybe
+
+Calculator Object:
+[local] varible to grab the values
+[local] maxAmountOfDigit = 10
+shape = rectangle
+color = black
+
+calculate() return result
+defineProperties?
 
 
-method to add value:
+Everytime a button is check the length of the string if value >= 10 stop adding values
