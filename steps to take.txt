@@ -25,3 +25,29 @@ defineProperties?
 
 
 Everytime a button is check the length of the string if value >= 10 stop adding values
+
+
+function Calculator() {
+  let values = "";
+  let maxAmountOfValues = 10;
+  this.count = 0;
+
+  this.shape = "rectangle";
+  this.color = "black";
+
+  this.numberToAdd = function (value) {
+    values += value;
+    this.count += 1;
+  };
+
+  this.reset = function () {
+    values = "";
+    this.count = 0;
+  };
+
+  this.calculate = function () {
+    return eval(values);
+  };
+}
+
+const calculator = new Calculator();
