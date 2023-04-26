@@ -1,0 +1,11 @@
+Add click event to the button to grab value.
+
+create a varible to hold values
+
+if button value is equal sign then, calculate the result.
+
+else add the value to the varible holder
+
+
+
+method to add value:
