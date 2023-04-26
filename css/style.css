@@ -186,3 +186,19 @@ p.hide {
   opacity: 0;
   transition: 0.1s ease-in-out;
 }
+
+.highlighted-plus {
+  background: lightgreen;
+}
+
+.highlighted-sub {
+  background: lightcoral;
+}
+
+.highlighted-mult {
+  background: lightsalmon;
+}
+
+.highlighted-divi {
+  background: violet;
+}
