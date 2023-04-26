@@ -1,6 +1,6 @@
 @font-face {
   font-family: "alarm";
-  src: url("/fonts/alarm.ttf");
+  src: url("fonts/alarm.ttf");
 }
 
 html {
