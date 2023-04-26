@@ -1,0 +1,53 @@
+Add click event to the button to grab value.
+
+create a varible to hold values
+
+if button value is equal sign then, calculate the result.
+
+else add the value to the varible holder
+
+Goal is to:
+Click the number adds to the screen
+
+if an operator is clicked then, 
+goes to next set of numbers
+*maybe just clear the screen*
+1 varible max maybe
+
+Calculator Object:
+[local] varible to grab the values
+[local] maxAmountOfDigit = 10
+shape = rectangle
+color = black
+
+calculate() return result
+defineProperties?
+
+
+Everytime a button is check the length of the string if value >= 10 stop adding values
+
+
+function Calculator() {
+  let values = "";
+  let maxAmountOfValues = 10;
+  this.count = 0;
+
+  this.shape = "rectangle";
+  this.color = "black";
+
+  this.numberToAdd = function (value) {
+    values += value;
+    this.count += 1;
+  };
+
+  this.reset = function () {
+    values = "";
+    this.count = 0;
+  };
+
+  this.calculate = function () {
+    return eval(values);
+  };
+}
+
+const calculator = new Calculator();
