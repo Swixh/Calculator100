@@ -24,103 +24,26 @@ letters.forEach((letter) => {
 });
 
 function Calculator() {
-  this.placeholderValue = 0;
+  let values = "";
+  let maxAmountOfValues = 10;
+  this.count = 0;
+
+  this.shape = "rectangle";
   this.color = "black";
 
-  let numbers = "";
-  let plain = "";
-  let nums = [];
-  let ops = "";
-  this.result = 0;
-
-  this.clear = function () {
-    numbers = "";
-    nums = [];
-    ops = "";
-    domScreen.innerText = "0";
-    document.querySelector("h2").innerText = ":)";
+  this.numberToAdd = function (value) {
+    values += value;
+    this.count += 1;
   };
 
-  this.resulter = function () {
-    this.result = doOperation(ops);
-    document.querySelector("h2").innerText = this.result;
-    document.querySelector(".screen").innerText = this.result;
-    setTimeout(() => {
-      document.querySelector("h2").innerText = ":)";
-    }, 1500);
-    nums = [];
-    console.log(this.result);
+  this.reset = function () {
+    values = "";
+    this.count = 0;
   };
 
-  this.fixer = function (button) {
-    plain += button.innerText;
+  this.calculate = function () {
+    return eval(values);
   };
-
-  this.grabNumber = function (value) {
-    if (numbers.length >= 10) {
-      return;
-    }
-    numbers += value;
-    domScreen.innerText = numbers;
-  };
-
-  this.operatorPressed = function (op) {
-    if (numbers.length > 0) {
-      pushAndRemove();
-    }
-    ops = op;
-  };
-
-  function pushAndRemove() {
-    nums.push(+numbers);
-    numbers = "";
-    domScreen.innerText = "";
-  }
-
-  function doOperation(operation) {
-    pushAndRemove();
-    return eval(plain);
-  }
-
-  Object.defineProperty(this, "nums", {
-    get: function () {
-      return nums;
-    },
-  });
-
-  Object.defineProperty(this, "ops", {
-    get: function () {
-      return ops;
-    },
-  });
-
-  Object.defineProperty(this, "plain", {
-    get: function () {
-      return plain;
-    },
-  });
 }
 
 const calculator = new Calculator();
-domScreen.innerText = calculator.placeholderValue;
-
-clear.addEventListener("click", calculator.clear);
-buttons.forEach((button) => {
-  button.addEventListener("click", () => {
-    // if (
-    //   button.innerText === "/" ||
-    //   button.innerText === "*" ||
-    //   button.innerText === "+" ||
-    //   button.innerText === "-"
-    // ) {
-    //   calculator.operatorPressed(button.innerText);
-    //   calculator.fixer(button.innerText);
-    // } else if (button.innerText === "=") {
-    //   calculator.resulter(button.innerText);
-    // } else {
-    //   // calculator.grabNumber(button.innerText);
-    //   calculator.fixer(button.innerText);
-    // }
-    calculator.fixer(button.innerText);
-  });
-});
