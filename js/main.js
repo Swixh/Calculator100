@@ -26,64 +26,28 @@ letters.forEach((letter) => {
 
 document.querySelector("h2").innerText = ":)";
 
+// //////////////////////////////////////////////////////////////////
+
 function Calculator() {
-  let values = "";
-  let holder = "";
-  let maxAmountOfValues = 10;
-  this.count = 0;
-
-  this.shape = "rectangle";
-  this.color = "black";
-
-  this.addADigit = function (value) {
-    values += value;
-    this.count += 1;
-    showOnScreen();
+  this.start = function () {
+    let nums = [];
+    domScreen.innerText = 0;
+    let buttons = document.querySelectorAll(".button");
+    buttons.forEach((button) => addListener(button));
   };
 
-  function showOnScreen() {
-    domScreen.innerText = values;
+  function solveAdd() {}
+
+  function solveMultiply() {}
+
+  function solveDivision() {}
+
+  function solveSubtract() {}
+
+  function addListener(button) {
+    button.addEventListener("click", () => {});
   }
-
-  function showSmiliesResult(result) {
-    document.querySelector("h2").innerText = result;
-    setTimeout(() => {
-      document.querySelector("h2").innerText = ":)";
-    }, 2000);
-  }
-
-  this.reset = function () {
-    values = "";
-    this.count = 0;
-    domScreen.innerText = "";
-  };
-
-  this.calculate = function () {
-    let result;
-    try {
-      result = eval(values);
-      domScreen.innerText = result;
-      showSmiliesResult(result);
-      setTimeout(() => {
-        this.reset();
-      }, 2000);
-    } catch (error) {
-      alert("You can't do that: " + error);
-      this.reset();
-    }
-  };
 }
 
 const calc = new Calculator();
-
-buttons.forEach((button) => {
-  button.addEventListener("click", function () {
-    if (button.innerText !== "=") {
-      calc.addADigit(button.innerText);
-    } else {
-      calc.calculate();
-    }
-  });
-});
-
-clear.addEventListener("click", () => calc.reset());
+calc.start();
